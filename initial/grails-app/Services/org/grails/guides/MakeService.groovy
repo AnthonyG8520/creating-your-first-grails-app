@@ -1,5 +1,8 @@
 package org.grails.guides
 
-interface MakeService {
+import grails.gorm.services.Service
 
+@Service(Make)
+interface MakeService {
+    Make save(String name)
 }

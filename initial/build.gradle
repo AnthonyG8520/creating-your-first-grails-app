@@ -70,6 +70,7 @@ dependencies {
     testImplementation "org.grails:grails-web-testing-support"
     testImplementation "org.seleniumhq.selenium:htmlunit-driver:2.35.1"
     testRuntimeOnly "net.sourceforge.htmlunit:htmlunit:2.35.0"
+    runtime 'mysql:mysql-connector-java:5.1.40'
 }
 
 bootRun {
