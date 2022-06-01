@@ -1,16 +1,21 @@
+package org.grails.guides
+
 import grails.gorm.transactions.ReadOnly
 
 import static org.springframework.http.HttpStatus.NOT_FOUND
 import static org.springframework.http.HttpStatus.OK
 import static org.springframework.http.HttpStatus.CREATED
-import org.grails.guides.Vehicle
+import static org.springframework.http.HttpStatus.NO_CONTENT
+
 import grails.gorm.transactions.Transactional
 
-@SuppressWarnings(['LineLength'])
+@SuppressWarnings('LineLength')
 @ReadOnly
 class VehicleController {
 
     static namespace = 'scaffolding'
+
+    def ValueEstimateService
 
     static allowedMethods = [save: 'POST', update: 'PUT', delete: 'DELETE']
 
@@ -20,7 +25,7 @@ class VehicleController {
     }
 
     def show(Vehicle vehicle) {
-        respond vehicle
+        respond vehicle, model: [estimatedValue: ValueEstimateService.getEstimate(vehicle)]
     }
 
     @SuppressWarnings(['FactoryMethodName', 'GrailsMassAssignment'])

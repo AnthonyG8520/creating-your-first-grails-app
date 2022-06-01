@@ -3,7 +3,7 @@ package org.grails.guides
 class HomeController {
 
     def index() {
-        respond([name: session.name ?: 'user', vehicleTotal: Vehicle.count])
+        respond([name: session.name ?: 'user', vehicleTotal: Vehicle.count, vehicleList: Vehicle.list()])
     }
 
     def updateName(String name){
